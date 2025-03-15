@@ -92,11 +92,12 @@ namespace NueGames.NueDeck.Scripts.Managers
             HandController.hand.Clear();
         }
 
-        public void DiscardCard()
+        public void DiscardMostRightCard()
         {
-            var targetCard = HandController.hand[Random.Range(0, HandController.hand.Count)];
-            targetCard.Discard();
+            var targetCard = HandController.hand[0];
             handController.hand.Remove(targetCard);
+            targetCard.Discard();
+           
         }
         
         public void OnCardDiscarded(CardBase targetCard)
